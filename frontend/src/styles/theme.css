@@ -1,0 +1,235 @@
+:root {
+  /* Pastel Day Mode */
+  --bg-primary: #fdf6f9;
+  --bg-secondary: #ffffff;
+  --bg-card: #ffffff;
+  --bg-sidebar: #fff0f5;
+  --bg-hover: #fce8f0;
+  --bg-input: #fff5f8;
+  --bg-overlay: rgba(253,246,249,0.95);
+
+  --accent-pink: #f8c8dc;
+  --accent-lavender: #d4b8f0;
+  --accent-mint: #b8e8d4;
+  --accent-peach: #ffd4b8;
+  --accent-sky: #b8d8f0;
+  --accent-yellow: #f8f0b8;
+
+  --primary: #e87aaa;
+  --primary-dark: #d45a8a;
+  --primary-light: #f8c8dc;
+  --secondary: #9b7cd4;
+
+  --text-primary: #1a1025;
+  --text-secondary: #5a4a6a;
+  --text-muted: #9a8aaa;
+  --text-inverse: #ffffff;
+
+  --border: #f0d8e8;
+  --border-strong: #e0c0d4;
+  --shadow-sm: 0 2px 8px rgba(232,122,170,0.08);
+  --shadow-md: 0 4px 24px rgba(232,122,170,0.12);
+  --shadow-lg: 0 8px 40px rgba(232,122,170,0.18);
+
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+  --radius-full: 9999px;
+
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body: 'DM Sans', system-ui, sans-serif;
+
+  --nav-height: 64px;
+  --sidebar-width: 260px;
+  --transition: all 0.22s cubic-bezier(0.4,0,0.2,1);
+}
+
+[data-theme="dark"] {
+  --bg-primary: #12080f;
+  --bg-secondary: #1e1020;
+  --bg-card: #1e1020;
+  --bg-sidebar: #180d18;
+  --bg-hover: #2a1530;
+  --bg-input: #200f22;
+  --bg-overlay: rgba(18,8,15,0.96);
+
+  --accent-pink: #4a1a2e;
+  --accent-lavender: #302248;
+  --accent-mint: #183828;
+  --accent-peach: #4a2818;
+  --accent-sky: #182840;
+  --accent-yellow: #382e08;
+
+  --primary: #e87aaa;
+  --primary-dark: #f0a0c0;
+  --primary-light: #3a1a28;
+  --secondary: #b89ce4;
+
+  --text-primary: #ede0ea;
+  --text-secondary: #b89ab0;
+  --text-muted: #8a7088;
+  --text-inverse: #1a1025;
+
+  --border: #3a1f30;
+  --border-strong: #5a2f48;
+  --shadow-sm: 0 2px 8px rgba(0,0,0,0.3);
+  --shadow-md: 0 4px 24px rgba(0,0,0,0.4);
+  --shadow-lg: 0 8px 40px rgba(0,0,0,0.5);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: var(--font-body);
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  min-height: 100vh;
+  transition: background 0.3s ease, color 0.3s ease;
+  line-height: 1.6;
+}
+
+a { color: var(--primary); text-decoration: none; }
+a:hover { color: var(--primary-dark); }
+
+button { font-family: var(--font-body); cursor: pointer; }
+input, textarea, select { font-family: var(--font-body); }
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+  color: white;
+  border: none;
+  padding: 10px 22px;
+  border-radius: var(--radius-full);
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: var(--transition);
+  box-shadow: 0 2px 12px rgba(232,122,170,0.25);
+}
+.btn-primary:hover { transform: translateY(-1px); box-shadow: 0 4px 20px rgba(232,122,170,0.4); }
+.btn-primary:active { transform: translateY(0); }
+
+.btn-secondary {
+  background: var(--bg-card);
+  color: var(--primary);
+  border: 2px solid var(--primary);
+  padding: 9px 22px;
+  border-radius: var(--radius-full);
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: var(--transition);
+}
+.btn-secondary:hover { background: var(--primary); color: white; }
+
+.card {
+  background: var(--bg-card);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+  padding: 20px;
+  transition: var(--transition);
+}
+.card:hover { box-shadow: var(--shadow-md); }
+
+.input-field {
+  width: 100%;
+  background: var(--bg-input);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 10px 14px;
+  color: var(--text-primary);
+  font-size: 0.95rem;
+  transition: var(--transition);
+  outline: none;
+}
+.input-field:focus { border-color: var(--primary); box-shadow: 0 0 0 3px rgba(232,122,170,0.15); }
+.input-field::placeholder { color: var(--text-muted); }
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 10px;
+  border-radius: var(--radius-full);
+  font-size: 0.78rem;
+  font-weight: 500;
+  background: var(--accent-pink);
+  color: var(--primary-dark);
+  border: 1px solid rgba(232,122,170,0.3);
+}
+
+.mentor-badge {
+  background: linear-gradient(135deg, #f8c8dc, #d4b8f0);
+  color: #5a1e70;
+  font-size: 0.72rem;
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.online-dot {
+  width: 10px; height: 10px;
+  background: #4ade80;
+  border-radius: 50%;
+  border: 2px solid var(--bg-card);
+  display: inline-block;
+}
+
+.score-badge {
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  color: white;
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: var(--radius-full);
+}
+
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border-strong); border-radius: 10px; }
+::-webkit-scrollbar-thumb:hover { background: var(--primary); }
+
+.fade-in { animation: fadeIn 0.3s ease forwards; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+
+.slide-in { animation: slideIn 0.25s ease forwards; }
+@keyframes slideIn { from { opacity: 0; transform: translateX(-12px); } to { opacity: 1; transform: none; } }
+
+/* ── Auth panel sidebar (Login & Register left panel) ── */
+:root {
+  --auth-panel-bg: linear-gradient(160deg, #f8c8dc 0%, #d4b8f0 55%, #b8d8f0 100%);
+}
+[data-theme="dark"] {
+  --auth-panel-bg: linear-gradient(160deg, #3a1228 0%, #2a1848 55%, #0e1e38 100%);
+}
+
+/* ── Mobile responsive ── */
+@media (max-width: 768px) {
+  /* Pages: remove side padding on very small screens */
+  .page-content { padding: 12px 10px !important; }
+
+  /* Cards: full width */
+  .card { border-radius: var(--radius-md) !important; }
+
+  /* Grid: single column on mobile */
+  .responsive-grid { grid-template-columns: 1fr !important; }
+
+  /* Auth pages: hide left panel below 700px */
+  .login-left-panel { display: none !important; }
+  .reg-sidebar { display: none !important; }
+  .reg-main { margin-left: 0 !important; }
+}
+
+@media (max-width: 480px) {
+  h1 { font-size: 1.4rem !important; }
+  .btn-primary, .btn-secondary { padding: 8px 14px !important; font-size: 0.82rem !important; }
+}
+
+/* ── Safe area for iOS notch ── */
+@supports (padding: max(0px)) {
+  body { padding-bottom: env(safe-area-inset-bottom); }
+}
